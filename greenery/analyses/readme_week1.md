@@ -9,13 +9,13 @@ SELECT COUNT(*) FROM DBT_RUBEN.STG_POSTGRES_USERS
 
 ### On average, how many orders do we receive per hour?
 
-Answer: 15.0 orders / hour
+Answer: 7.5 orders / hour
 
 ```sql
 WITH C AS (
     SELECT 
-    HOUR(CREATED_AT) AS ORDER_CREATED_AT_HOUR,
-    COUNT(DISTINCT order_id) AS ORDER_COUNT
+        DATE_TRUNC('hour', CREATED_AT) AS ORDER_DAY_HOUR,
+        COUNT(DISTINCT order_id) AS ORDER_COUNT
     FROM DBT_RUBEN.STG_POSTGRES_ORDERS
     GROUP BY 1
 )
@@ -72,11 +72,11 @@ SELECT '3+' AS ORDER_COUNT, COUNT(DISTINCT USER_ID) AS USER_COUNT FROM P3
 
 ### On average, how many unique sessions do we have per hour?
 
-Answer: 39.5 sessions / hour
+Answer: 16.2 sessions / hour
 
 ```sql
 WITH S AS ( 
-    SELECT HOUR(CREATED_AT) AS SESSION_HOUR,
+    SELECT DATE_TRUNC('hour', CREATED_AT) AS SESSION_HOUR,
            COUNT(DISTINCT SESSION_ID) AS NUM_SESSIONS
     FROM DBT_RUBEN.STG_POSTGRES_EVENTS
     GROUP BY 1
