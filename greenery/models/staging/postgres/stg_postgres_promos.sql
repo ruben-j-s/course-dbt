@@ -4,6 +4,9 @@
   )
 }}
 
-SELECT 
-PROMO_ID, DISCOUNT, STATUS
-FROM {{ source('postgres', 'promos') }}
+SELECT
+    PROMO_ID,
+    DISCOUNT as promo_discount,
+    STATUS as promo_status
+FROM
+    {{ source('postgres', 'promos') }}
