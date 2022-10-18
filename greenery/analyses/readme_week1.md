@@ -1,3 +1,4 @@
+## Week 1 Project
 
 ### How many users do we have?
 
