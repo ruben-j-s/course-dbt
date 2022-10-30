@@ -3,6 +3,7 @@
 #### Part 1 - Conversion model
 
 1. What is our overall conversion rate?
+Answer: 62,46 %
 
 ```sql
 select
