@@ -1,0 +1,17 @@
+version: 2
+
+macros:
+  - name: event_type_counts
+    description: aggregate the event types and slice them by an input field.
+    arguments: 
+      - name: ref_table
+        type: 
+        description: ref_table 
+      - name: ref_column
+        type: 
+        description: ref_column
+      - name: count_column
+        type: 
+        description: count_column
+
+

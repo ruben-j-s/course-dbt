@@ -10,3 +10,11 @@ models:
         tests:
           - not_null
           - unique
+          
+  - name: fact_conversion
+    description: >
+      Session, Product, and Order-grained table with event information
+    columns:
+    - name: unique_key
+      tests:
+        - not_null
